@@ -40,4 +40,18 @@ router.get('/', (req, res) => {
       });
   });
 
+  router.get('/login', (req, res) => {// Our login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+    res.render('login');
+  });
+
+  router.get('/', (req, res) => {
+    console.log(req.session);
+  
+    // other logic...
+  });
+
 module.exports = router;
